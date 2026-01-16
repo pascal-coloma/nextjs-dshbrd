@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: nextjs_dashboard_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: nextjs
+      POSTGRES_PASSWORD: nextjs_password
+      POSTGRES_DB: nextjs_dashboard
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
